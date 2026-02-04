@@ -1,0 +1,171 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 143806043404000,
+      "steps": 20,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.91,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "24",
+        0
+      ],
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "text, watermark",
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码器"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": "2025.jpg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "加载图像"
+    }
+  },
+  "12": {
+    "inputs": {
+      "text": [
+        "24",
+        0
+      ],
+      "text2": " The image is a graphic illustration, likely designed to celebrate the Chinese New Year. It features two animated characters, one on each side, with the character on the right resembling Hello Kitty, a popular anime-style cartoon character, and the character on the left looking like Kurochii, also known as Marui, from the same franchise, depicted in a similar cute style. They are surrounded by a festive scene including Chinese lanterns, banners with what appears to be Chinese characters, and Japanese oranges (tangerines) known as \"yuzu\" in Japan. There is a cake on the right decorated with more characters and symbols that could be related to Hello Kitty's world or the Chinese New Year. The background is pink with Japanese cherry blossom motifs.\n\nThe date \"2016年1月8日\" (January 8, 2016) is prominently displayed in the top left corner, suggesting that this image was created to commemorate a special occasion or event within that year. The overall design of the image combines elements from both Japanese and Chinese cultures, indicating a celebration that brings these two worlds together. "
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "展示文本"
+    }
+  },
+  "17": {
+    "inputs": {
+      "pixels": [
+        "19",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "19": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 0.6,
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "图像按系数缩放"
+    }
+  },
+  "23": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "24": {
+    "inputs": {
+      "query": "briefly describe the image",
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "llava:7b",
+      "keep_alive": 0,
+      "format": "text",
+      "seed": 1312620951,
+      "images": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "OllamaVision",
+    "_meta": {
+      "title": "Ollama Vision"
+    }
+  },
+  "26": {
+    "inputs": {
+      "ckpt_name": "pixelArtDiffusionXL_spriteShaper.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  }
+}
