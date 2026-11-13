@@ -1,7 +1,5 @@
 # Intelligent Data Visualization Platform Based on Pandas and Gradio
 
-[简体中文](README.md) | English
-
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Gradio](https://img.shields.io/badge/UI-Gradio-FF7C00)
 ![Pandas](https://img.shields.io/badge/Data-Pandas-150458?logo=pandas&logoColor=white)
